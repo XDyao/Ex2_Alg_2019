@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "lista.h"
+#include "../lib/lista.h"
 
 struct no {
 	elem info;
