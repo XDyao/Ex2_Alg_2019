@@ -13,8 +13,9 @@ struct lista{
 };
 
 void cria(Lista **l){
-	*l = malloc(sizeof(Lista)); // instancia lista
-    	// define lista vazia
+	//instancia lista
+	*l = malloc(sizeof(Lista));
+    	//define lista vazia
 	(*l)->ini = NULL;
     	(*l)->fim = NULL;
 	(*l)->tamanho = 0;
@@ -22,14 +23,14 @@ void cria(Lista **l){
 }
 
 void destroi(Lista **l){
-    	// apaga elementos
+    	//apaga elementos
     	No *aux;
    	while ((*l)->ini != NULL){
         	aux = (*l)->ini;
         	(*l)->ini = (*l)->ini->prox;
 		free(aux);
     	}
-    	// apaga lista
+    	//apaga lista
     	free(*l);
     	*l = NULL;
     	return;
@@ -37,18 +38,18 @@ void destroi(Lista **l){
 
 void insere_final(Lista *l, elem x){
     	No *aux;
-    	// cria no
+    	//cria no
     	aux = malloc(sizeof(No));
     	aux->info = x;
     	aux->prox = NULL;
-    	// atualiza ponteiros
-    	if (l->fim != NULL)
+    	//atualiza ponteiros
+    	if (l->fim != NULL){
         	l->fim->prox = aux;
-	
+	}
     	l->fim = aux;
-	
-    	if (l->ini == NULL)
+    	if (l->ini == NULL){
         	l->ini = aux;
+	}
 	l->tamanho++;
 	return;
 }
