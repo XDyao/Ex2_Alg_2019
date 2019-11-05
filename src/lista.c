@@ -65,10 +65,12 @@ void imprime(Lista *l){
 }
 
 int esta_na_lista(Lista *l, elem x){
+	//contador de comparacoes efetuadas
 	int contador = 0; 
     	No *aux = l->ini;
     	while (aux != NULL){
         	if(aux->info == x){
+			contador++;
             		return contador;
 		}
         	aux = aux->prox;
