@@ -53,22 +53,24 @@ void insere_final(Lista *l, elem x){
 	return;
 }
 
-void imprime(Lista *l) {
+void imprime(Lista *l){
     	No *aux = l->ini;
-    while (aux != NULL) {
-        printf("%c\t", aux->info);
-        aux = aux->prox;
-    }
-    printf("\n");
-    return;
+    	while (aux != NULL){
+        	printf("%d\t", aux->info);
+        	aux = aux->prox;
+    	}
+    	printf("\n");
+    	return;
 }
 
-int esta_na_lista(Lista *l, elem x) {
-    No *aux = l->ini;
-    while (aux != NULL) {
-        if (aux->info == x)
-            return 1; // achou
-        aux = aux->prox;
-    }
-    return -1// nao achou
+int esta_na_lista(Lista *l, elem x){
+	int contador = 0; 
+    	No *aux = l->ini;
+    	while (aux != NULL){
+        	if(aux->info == x){
+            		return contador;
+		}
+        	aux = aux->prox;
+    	}
+    	return contador;
 }
