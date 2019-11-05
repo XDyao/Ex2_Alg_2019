@@ -2,17 +2,17 @@
 #include <stdio.h>
 #include "../lib/lista.h"
 
-struct no {
+struct no{
 	elem info;
 	struct no *prox;
 };
 
-struct lista {
+struct lista{
 	No *ini, *fim;
 	int tamanho;
 };
 
-void cria(Lista **l) {
+void cria(Lista **l){
 	*l = malloc(sizeof(Lista)); // instancia lista
     	// define lista vazia
 	(*l)->ini = NULL;
@@ -25,9 +25,9 @@ void destroi(Lista **l){
     	// apaga elementos
     	No *aux;
    	while ((*l)->ini != NULL){
-        aux = (*l)->ini;
-        (*l)->ini = (*l)->ini->prox;
-        free(aux);
+        	aux = (*l)->ini;
+        	(*l)->ini = (*l)->ini->prox;
+		free(aux);
     	}
     	// apaga lista
     	free(*l);
@@ -49,14 +49,14 @@ void insere_final(Lista *l, elem x){
 	
     	if (l->ini == NULL)
         	l->ini = aux;
-	((*l)->tamanho)++;
-    return;
+	l->tamanho++;
+	return;
 }
 
 void imprime(Lista *l) {
-    No *aux = l->ini;
+    	No *aux = l->ini;
     while (aux != NULL) {
-        printf("%c ", aux->info);
+        printf("%c\t", aux->info);
         aux = aux->prox;
     }
     printf("\n");
@@ -70,5 +70,5 @@ int esta_na_lista(Lista *l, elem x) {
             return 1; // achou
         aux = aux->prox;
     }
-    return 0; // nao achou
+    return -1// nao achou
 }
